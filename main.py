@@ -3,10 +3,10 @@ import numpy as np
 
 ax = plt.figure().add_subplot(projection='3d')
 
-# Plot a sin curve using the x and y axes.
-x = np.linspace(-1, 1, 100)
-y = 0
-ax.plot(x, y, zs=0, zdir='z', label='curve in (x, y)')
+## X, Y, Z axes
+ax.plot([-1,1], [0,0], [0,0], color='r', label="PSI Interna")
+ax.plot([0,0], [-1,1], [0,0], color='b', label="PSI Externa")
+ax.plot([0,0], [0,0], [-1,1], color='g', label="PSI Inherente")
 
 # Plot scatterplot data (20 2D points per colour) on the x and z axes.
 colors = ('r', 'g', 'b', 'k')
@@ -28,9 +28,9 @@ ax.legend()
 ax.set_xlim(-1, 1)
 ax.set_ylim(-1, 1)
 ax.set_zlim(-1, 1)
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
+ax.set_xlabel('X-INTERNA')
+ax.set_ylabel('Y-EXTERNA')
+ax.set_zlabel('Z-INHERENTE')
 
 # Customize the view angle so it's easier to see that the scatter points lie
 # on the plane y=0
