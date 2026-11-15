@@ -1,11 +1,39 @@
-import cv2 as cv
+import matplotlib.pyplot as plt
 import numpy as np
 
-# Mostramos la versión de OpenCV
-print("OpenCV:", cv.__version__)
+ax = plt.figure().add_subplot(projection='3d')
 
-img = np.zeros((120, 400, 3), dtype=np.uint8)
+# Plot a sin curve using the x and y axes.
+x = np.linspace(-1, 1, 100)
+y = 0
+ax.plot(x, y, zs=0, zdir='z', label='curve in (x, y)')
 
-cv.putText(img, "Hola Insanos", (10, 80), cv.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 3)
+# Plot scatterplot data (20 2D points per colour) on the x and z axes.
+colors = ('r', 'g', 'b', 'k')
 
-cv.imwrite("hello.png", img)
+# Fixing random state for reproducibility
+np.random.seed(19680801)
+
+x = np.random.sample(5 * len(colors))
+y = np.random.sample(5 * len(colors))
+c_list = []
+for c in colors:
+    c_list.extend([c] * 5)
+# By using zdir='y', the y value of these points is fixed to the zs value 0
+# and the (x, y) points are plotted on the x and z axes.
+ax.scatter(x, y, zs=0, zdir='y', c=c_list, label='points in (x, z)')
+
+# Make legend, set axes limits and labels
+ax.legend()
+ax.set_xlim(-1, 1)
+ax.set_ylim(-1, 1)
+ax.set_zlim(-1, 1)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+# Customize the view angle so it's easier to see that the scatter points lie
+# on the plane y=0
+ax.view_init(elev=20., azim=-35, roll=0)
+
+plt.show()
