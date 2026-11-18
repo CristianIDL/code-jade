@@ -6,6 +6,24 @@ CLASSES = [
         "size": 100,
     },
     {
+        "name": "Ilusionista",
+        "coords": (-.9,-.9,-.9),
+        "color": "b",
+        "size": 100,
+    },
+    {
+        "name": "Telépata",
+        "coords": (-.9,.9,.9),
+        "color": "b",
+        "size": 100,
+    },
+    {
+        "name": "Vidente",
+        "coords": (-.9,.9,-.9),
+        "color": "b",
+        "size": 100,
+    },
+    {
         "name": "Hipnotista",
         "coords": (-.9,-.9, .9),
         "color": "b",
